@@ -1,7 +1,7 @@
 package build;
 
-
 import build.StringMatchingAlgorithm;
+import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -10,10 +10,14 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.plaf.FileChooserUI;
 import java.io.IOException;
+import java.util.Set;
+import javax.swing.text.StyleConstants.FontConstants;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.PDType0Font;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -47,7 +51,6 @@ public class Tuned extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         Pattern = new javax.swing.JLabel();
         inputPatron = new javax.swing.JTextField();
         pdfOutput = new javax.swing.JButton();
@@ -59,6 +62,8 @@ public class Tuned extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         loadFile = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,9 +71,6 @@ public class Tuned extends javax.swing.JFrame {
         jLabel1.setText("  String Matching Method: Tuned Boyer-Moore");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel4.setText("String matching: Tuned Boyer-Moore");
 
         Pattern.setText("Pattern:");
 
@@ -109,7 +111,11 @@ public class Tuned extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Captura de pantalla 2023-12-06 164555.png"))); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("String matching: Tuned Boyer-Moore");
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/build/Captura de pantalla 2023-12-06 164555.png"))); // NOI18N
+        jLabel8.setText("jLabel8");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -122,47 +128,47 @@ public class Tuned extends javax.swing.JFrame {
                         .addGap(49, 49, 49)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(Pattern)
                                 .addGap(12, 12, 12)
                                 .addComponent(inputPatron, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(loadFile)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(pdfOutput)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Matching)
-                                .addGap(36, 36, 36))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(7, 7, 7)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(14, 14, 14))
+                                .addComponent(Matching))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel5)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29))
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pdfOutput, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -170,11 +176,11 @@ public class Tuned extends javax.swing.JFrame {
                                 .addComponent(inputPatron, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Matching)
                                 .addComponent(loadFile)))))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -198,35 +204,35 @@ public class Tuned extends javax.swing.JFrame {
         patron = inputPatron.getText();
     }//GEN-LAST:event_inputPatronActionPerformed
     private String contenidoArchivo;
-    
+
     private void loadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadFileActionPerformed
         JFileChooser fileChooser = new JFileChooser();
-    fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-    int result = fileChooser.showOpenDialog(this);
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int result = fileChooser.showOpenDialog(this);
 
-    if (result == JFileChooser.APPROVE_OPTION) {
-        selectedFile = fileChooser.getSelectedFile();
+        if (result == JFileChooser.APPROVE_OPTION) {
+            selectedFile = fileChooser.getSelectedFile();
 
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(selectedFile));
-            StringBuilder contentBuilder = new StringBuilder();
-            String line;
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(selectedFile));
+                StringBuilder contentBuilder = new StringBuilder();
+                String line;
 
-            while ((line = br.readLine()) != null) {
-                contentBuilder.append(line).append("\n");
+                while ((line = br.readLine()) != null) {
+                    contentBuilder.append(line).append("\n");
+                }
+                br.close();
+
+                // Asignar el contenido del archivo a la variable contenidoArchivo
+                contenidoArchivo = contentBuilder.toString();
+
+                jTextArea1.setText("El archivo ha sido cargado");
+            } catch (IOException e) {
+                e.printStackTrace();
+                jTextArea1.setText("Error al leer el archivo");
             }
-            br.close();
-
-            // Asignar el contenido del archivo a la variable contenidoArchivo
-            contenidoArchivo = contentBuilder.toString();
-
-            jTextArea1.setText("El archivo ha sido cargado");
-        } catch (IOException e) {
-            e.printStackTrace();
-            jTextArea1.setText("Error al leer el archivo");
         }
-    }
-        
+
     }//GEN-LAST:event_loadFileActionPerformed
 
     private void MatchingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MatchingActionPerformed
@@ -239,7 +245,7 @@ public class Tuned extends javax.swing.JFrame {
                     String line;
 
                     while ((line = br.readLine()) != null) {
-                        contentBuilder.append(line).append("\n");
+                        contentBuilder.append(line).append("/n");
                     }
                     br.close();
 
@@ -268,48 +274,79 @@ public class Tuned extends javax.swing.JFrame {
     }//GEN-LAST:event_MatchingActionPerformed
 
     private void pdfOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdfOutputActionPerformed
-        System.out.println("Error de dependencias");
         jTextArea1.setText("");
         jTextArea1.setText("Entra al boton");
+
         if (contenidoArchivo != null && !contenidoArchivo.isEmpty()) {
-        try {
-            // Crear un nuevo documento PDF
-            PDDocument documento = new PDDocument();
-            PDPage pagina = new PDPage();
-            documento.addPage(pagina);
+            try {
+                // Crear un nuevo documento PDF
+                PDDocument documento = new PDDocument();
+                PDPage pagina = new PDPage();
+                documento.addPage(pagina);
 
-            // Inicializar el stream de contenido para escribir en la página
-            PDPageContentStream contenido = new PDPageContentStream(documento, pagina);
-            contenido.beginText();
-            // No se especifica la fuente
+                // Inicializar el stream de contenido para escribir en la página
+                PDPageContentStream contenido = new PDPageContentStream(documento, pagina);
 
-            contenido.newLineAtOffset(50, 700); // Posición de inicio del texto en la página
-            contenido.showText(contenidoArchivo); // Usar el contenido del archivo
+                // Establecer la fuente y el tamaño del texto
+                File fontFile = new File("carpet/Poppins/Poppins-Black.ttf");
+                PDType0Font font = PDType0Font.load(documento, fontFile);
+                contenido.setFont(font, 12);
 
-            contenido.endText();
+                // Posición de inicio del texto en la página
+                float startX = 50;
+                float startY = 700;
 
-            // No es necesario calcular la longitud del texto
-            // Dibujar una línea debajo del texto para simular el subrayado
-            contenido.moveTo(50, 695); // Posición inicial de la línea (debajo del texto)
-            contenido.lineTo(50 + contenidoArchivo.length() * 5, 695); // Ajuste aproximado de la longitud del texto
-            contenido.setStrokingColor(0, 0, 0); // Color de la línea: negro
-            contenido.setLineWidth(1); // Grosor de la línea
-            contenido.stroke();
+                // Espaciado entre líneas
+                float lineHeight = 14;
 
-            // Cerrar el contenido y guardar el documento PDF
-            contenido.close();
-            documento.save("resultado.pdf");
-            documento.close();
+                // Usar el contenido del archivo
+                // Establece el ancho máximo para el texto antes de realizar un salto de línea
+                float maxTextWidth = 500;
 
-            jTextArea1.setText("PDF creado exitosamente con texto y línea subrayada.");
-        } catch (IOException e) {
-            e.printStackTrace();
-            jTextArea1.setText("Error al crear el PDF: " + e.getMessage());
+                String[] lines = contenidoArchivo.split("\n");
+                for (String line : lines) {
+                    contenido.beginText();
+                    contenido.newLineAtOffset(startX, startY);
+
+                    // Buscar el patrón en la línea
+                    int index = line.indexOf(patron);
+                    int lastFoundIndex = 0; // Iniciar en el índice 0
+                    while (index != -1) {
+                        // Mostrar la parte antes del patrón
+                        contenido.showText(line.substring(lastFoundIndex, index));
+
+                        // Cambiar el color de las palabras que coinciden con el patrón
+                        contenido.setNonStrokingColor(1, 0, 0);  // Rojo
+                        contenido.showText(line.substring(index, index + patron.length()));
+                        contenido.setNonStrokingColor(0, 0, 0);  // Restaurar el color negro
+
+                        // Actualizar la posición del último patrón encontrado
+                        lastFoundIndex = index + patron.length();
+
+                        // Buscar el próximo patrón en la línea
+                        index = line.indexOf(patron, lastFoundIndex);
+                    }
+
+                    // Mostrar la parte después del último patrón
+                    contenido.showText(line.substring(lastFoundIndex));
+
+                    contenido.endText();
+                    startY -= lineHeight;
+                }
+
+                // Cerrar el contenido y guardar el documento PDF
+                contenido.close();
+                documento.save("resultado.pdf");
+                documento.close();
+
+                jTextArea1.setText("PDF creado exitosamente con texto y línea subrayada.");
+            } catch (IOException e) {
+                e.printStackTrace();
+                jTextArea1.setText("Error al crear el PDF: " + e.getMessage());
+            }
+        } else {
+            jTextArea1.setText("No hay texto para generar el PDF.");
         }
-    } else {
-        jTextArea1.setText("No hay texto para generar el PDF.");
-    }
-
     }//GEN-LAST:event_pdfOutputActionPerformed
 
     /**
@@ -358,6 +395,7 @@ public class Tuned extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
